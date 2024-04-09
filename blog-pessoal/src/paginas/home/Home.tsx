@@ -1,17 +1,22 @@
-import React from "react";
-import "./Home.css";
+import React, { useState, useEffect } from "react";
 
-interface minhaProps {
-  title: string;
-  description: string;
-}
+function Home() {
+  const [completed, setCompleted] = useState(false);
+  const [tarefa, setTarefa] = useState("");
 
-function Home(props: minhaProps) {
+  useEffect(() => {
+    if (completed) {
+      setTarefa("Parabéns! Você concluiu a tarefa!");
+    }
+  }, [completed]);
+
   return (
-    <>
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-    </>
+    <div>
+      <h1>Tarefa</h1>
+      <h3>{tarefa}</h3>
+      <p>Conclua a tarefa</p>
+      <button onClick={() => setCompleted(true)}>Concluir Tarefa</button>
+    </div>
   );
 }
 

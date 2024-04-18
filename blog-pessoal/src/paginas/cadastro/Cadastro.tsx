@@ -28,46 +28,42 @@ function Cadastro() {
 
   useEffect(() => {
     if (usuarioResposta.id !== 0) {
-      back();
+      back()
     }
-  }, [usuarioResposta]);
+  }, [usuarioResposta])
 
   function back() {
-    navigate("/login");
+    navigate('/login')
   }
 
   function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
-    setConfirmaSenha(e.target.value);
+    setConfirmaSenha(e.target.value)
   }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setUsuario({
       ...usuario,
-      [e.target.name]: e.target.value,
-    });
+      [e.target.name]: e.target.value
+    })
   }
 
   async function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault();
+    e.preventDefault()
 
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
+
       try {
-        await cadastrarUsuario(
-          `/usuarios/cadastrar`,
-          usuario,
-          setUsuarioResposta
-        );
-        toastAlerta("Usuário cadastrado com sucesso", "sucesso");
+        await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResposta)
+        toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
+
       } catch (error) {
-        toastAlerta("Usuário cadastrado com sucesso", "sucesso");
+        toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
       }
+
     } else {
-      toastAlerta(
-        "Dados inconsistentes. Verifique as informações de cadastro.",
-        "erro"
-      );
-      setUsuario({ ...usuario, senha: "" });
-      setConfirmaSenha("");
+      toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
+      setUsuario({ ...usuario, senha: "" }) // Reinicia o campo de Senha
+      setConfirmaSenha("")                  // Reinicia o campo de Confirmar Senha
     }
   }
 

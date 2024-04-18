@@ -36,7 +36,6 @@ function Navbar() {
             <Link to="/perfil" className="hover:underline">
               Perfil
             </Link>
-            <div className="hover:underline">Perfil</div>
             <Link to="" onClick={logout} className="hover:underline">
               Sair
             </Link>
@@ -45,7 +44,6 @@ function Navbar() {
       </div>
     );
   }
-
   return <>{navbarComponent}</>;
 }
 

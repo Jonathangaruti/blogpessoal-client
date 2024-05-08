@@ -12,9 +12,7 @@ function Login() {
     {} as UsuarioLogin
   );
 
-  const { usuario, handleLogin } = useContext(AuthContext);
-
-  const { isLoading } = useContext(AuthContext);
+  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
 
   useEffect(() => {
     if (usuario.token !== "") {
@@ -41,15 +39,15 @@ function Login() {
           className="flex justify-center items-center flex-col w-1/2 gap-4"
           onSubmit={login}
         >
-          <h2 className="text-slate-900 text-5xl ">Entrar</h2>
+          <h2 className="text-slate-900 text-5xl clean-font">Entrar</h2>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario">Usuário</label>
+            <label htmlFor="usuario">E-mail</label>
             <input
               type="text"
               id="usuario"
               name="usuario"
-              placeholder="Usuario"
-              className="border-2 border-slate-700 rounded p-2"
+              placeholder="E-mail"
+              className="border-2 border-slate-700 rounded p-2 "
               value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
@@ -72,7 +70,7 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="rounded bg-indigo-400 hover:bg-indigo-900 text-white w-1/2 py-2 flex justify-center"
+            className="rounded bg-green-400 hover:bg-green-600 text-white w-5/6 py-2 flex justify-center clean-font"
           >
             {isLoading ? (
               <RotatingLines
@@ -87,11 +85,11 @@ function Login() {
             )}
           </button>
 
-          <hr className="border-slate-800 w-full" />
+          <hr className="border-slate-800 w-full my-4" />
 
-          <p>
+          <p className="clean-font">
             Ainda não tem uma conta?{" "}
-            <Link to="/cadastro" className="text-indigo-800 hover:underline">
+            <Link to="/cadastro" className="text-green-400 hover:underline">
               Cadastre-se
             </Link>
           </p>

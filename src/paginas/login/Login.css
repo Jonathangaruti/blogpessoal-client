@@ -1,8 +1,14 @@
 .fundoLogin {
-  background-image: url(../../assets/login.jpg);
+  background-image: url(../../assets/image-background.gif);
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 85vh;
   width: 100%;
   background-size: cover;
   background-position: center;
+  box-shadow: -0.1px 0px 0px 0px rgba(0,0,0,0.75);
+}
+
+.clean-font {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }

@@ -19,12 +19,12 @@ function Navbar() {
     navbarComponent = (
       <div className="w-full bg-indigo-900 text-white flex justify-center py-4">
         <div className="container flex justify-between text-lg">
-          <Link to="/home" className="text-2xl font-bold uppercase">
-            Blog Pessoal
+          <Link to="/home" className="text-2xl font-semibold">
+            BlogPessoal - Jonathan
           </Link>
 
           <div className="flex gap-4">
-          <Link to="/home" className="hover:underline">
+            <Link to="/home" className="hover:underline">
               Home
             </Link>
             <Link to="/postagens" className="hover:underline">
